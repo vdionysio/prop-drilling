@@ -8,7 +8,7 @@ class Header extends Component {
       <header>
         <p>{ `Username: ${username}` }</p>
       </header>
-    )
+    );
   }
 }
 

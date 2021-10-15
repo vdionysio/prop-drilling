@@ -19,7 +19,7 @@ class Login extends Component {
   }
   handleChange({target}) {
     const { value } = target;
-    this.setState({ username: value })
+    this.setState({ username: value });
   }
   render() {
     return (
@@ -36,7 +36,7 @@ class Login extends Component {
           Login
         </button>
       </form>
-    )
+    );
   }
 }
 

@@ -1,5 +1,4 @@
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import React from 'react';
@@ -21,17 +20,15 @@ class App extends React.Component {
     const { username } = this.state;
     return (
       <BrowserRouter>
-        <Switch>
-          <Route
-            path="/main"
-            component={ () => <Home username={ username } /> }
-          />
-          <Route
-            exact
-            path="/"
-            component={() => <Login saveUser={ this.saveUser } /> }
-          />
-        </Switch>
+        <Route
+          path="/main"
+          component={ () => <Home username={ username } /> }
+        />
+        <Route
+          exact
+          path="/"
+          component={() => <Login saveUser={ this.saveUser } /> }
+        />
       </BrowserRouter>
     );
   }
