@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
+import { MyContext } from '../Context';
 
 class Login extends Component {
   constructor(props) {
@@ -11,16 +12,20 @@ class Login extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleClick() {
-    const { saveUser, history } = this.props;
+    const { history } = this.props;
+    const { saveUser } = this.context;
     const { username } = this.state;
     saveUser(username);
     history.push('/main');
   }
+
   handleChange({target}) {
     const { value } = target;
-    this.setState({ username: value })
+    this.setState({ username: value });
   }
+
   render() {
     return (
       <form>
@@ -36,15 +41,16 @@ class Login extends Component {
           Login
         </button>
       </form>
-    )
+    );
   }
 }
 
 Login.propTypes = {
-  saveUser: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
 };
+
+Login.contextType = MyContext;
 
 export default withRouter(Login);

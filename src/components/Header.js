@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { MyContext } from '../Context';
 
 class Header extends Component {
   render() {
-    const { username } = this.props;
+    const { username } = this.context;
     return (
       <header>
         <p>{ `Username: ${username}` }</p>
       </header>
-    )
+    );
   }
 }
 
-Header.propTypes = {
-  username: PropTypes.string.isRequired,
-};
+Header.contextType = MyContext;
 
 export default Header;

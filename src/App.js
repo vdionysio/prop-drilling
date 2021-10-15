@@ -1,8 +1,8 @@
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import React from 'react';
+import Context from './Context';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class App extends React.Component {
     const { username } = this.state;
     return (
       <BrowserRouter>
-        <Switch>
+        <Context>
           <Route
             path="/main"
             component={ () => <Home username={ username } /> }
@@ -31,7 +31,7 @@ class App extends React.Component {
             path="/"
             component={() => <Login saveUser={ this.saveUser } /> }
           />
-        </Switch>
+        </Context>
       </BrowserRouter>
     );
   }
