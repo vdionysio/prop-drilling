@@ -33,7 +33,7 @@ class Context extends Component {
 }
 
 Context.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node.isRequired,
 };
 
 export default Context;
